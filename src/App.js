@@ -6,10 +6,16 @@ function App() {
 
   const [entries, setEntries] = useState([{weight:174,date:'4-21-2022'},{weight:175,date:'4-22-2022'}])
 
+  function addNewEntry(entry) {
+    let tempEntries = [...entries, entry ];
+
+        setEntries(tempEntries);
+  }
+
   return (
     <div>
       <DisplayEntries parentEntries={entries} />
-      <AddEntryForm />
+      <AddEntryForm addNewEntryProperty={addNewEntry} />
     </div>
   );
 }
